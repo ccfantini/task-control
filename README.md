@@ -1,7 +1,7 @@
 
 # Task Control API
 
-It is a demonstrative REST API application for task management developed using Spring Bootcom H2 database and OAuth2 authentication protocol.
+It is a demonstrative REST API application for task management developed using Spring Boot with H2 database and OAuth2 to authentication.
 
 ## Settings
 - It is not necessary to make any changes to the application.properties
