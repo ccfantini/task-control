@@ -47,30 +47,33 @@ It is a demonstrative REST API application for task management developed using S
 
 ## Health Check
 
-    <code>curl -X GET "http://localhost:8080/actuator/health" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+   <code>curl -X GET "http://localhost:8080/actuator/health" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
 
 ## Log (HTTP Trace)
 
-    <code>curl -X GET "http://localhost:8080/actuator/httptrace" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+   <code>curl -X GET "http://localhost:8080/actuator/httptrace" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
 
 ## Metrics
-
-    * Search all available metrics
-        <code>curl -X GET "http://localhost:8080/actuator/metrics" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+    
+* Search all available metrics
+   
+   <code>curl -X GET "http://localhost:8080/actuator/metrics" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
         
-    * Example of metrics to http requests
-        <code>curl -X GET "http://localhost:8080/actuator/metrics/http.server.requests" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+* Example of metrics to http requests
+   
+   <code>curl -X GET "http://localhost:8080/actuator/metrics/http.server.requests" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
 
 ## Technologies
 
-    * [Spring Boot](https://spring.io/projects/spring-boot)
-    * [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
-    * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
-    * [H2 Database](https://www.h2database.com/html/main.html)
-    * [SpringFox Swagger UI](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui)
-    * [Spring Security OAuth2 Autoconfigure](https://docs.spring.io/spring-security-oauth2-boot/docs/2.0.0.RC2/reference/htmlsingle/)
-    * [Maven](https://maven.apache.org/)
-    * [Mockito](https://site.mockito.org/)
-    * [Spring Boot Dev Tools](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html)
+   * [Spring Boot](https://spring.io/projects/spring-boot)
+   * [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+   * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
+   * [H2 Database](https://www.h2database.com/html/main.html)
+   * [SpringFox Swagger UI](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui)
+   * [Spring Security OAuth2 Autoconfigure](https://docs.spring.io/spring-security-oauth2-boot/docs/2.0.0.RC2/reference/htmlsingle/)
+   * [Maven](https://maven.apache.org/)
+   * [Mockito](https://site.mockito.org/)
+   * [Spring Boot Dev Tools](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html)
+
 
 
