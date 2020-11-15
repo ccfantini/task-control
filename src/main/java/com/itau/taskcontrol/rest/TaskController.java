@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +36,7 @@ public class TaskController {
 	}
 
 	@GetMapping("/status/{status}")
-	public ResponseEntity<List<TaskEntity>> getByStatus(EnumStatus status) {
+	public ResponseEntity<List<TaskEntity>> getByStatus(@PathVariable EnumStatus status) {
 		List<TaskEntity> tasks = service.getTaskByStatus(status);
 		return new ResponseEntity<List<TaskEntity>>(tasks, new HttpHeaders(), HttpStatus.OK);
 	}
@@ -56,13 +56,13 @@ public class TaskController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Message> deleteById(Long id) throws RecordNotFoundException, BusinessRuleException {
+	public ResponseEntity<Message> deleteById(@PathVariable Long id) throws RecordNotFoundException, BusinessRuleException {
 		service.deleteTaskById(id);
 		return new ResponseEntity<Message>(new Message("Tarefa removida com sucesso."), new HttpHeaders(),
 				HttpStatus.OK);
 	}
 	
-	@GetMapping("/generatepassword")
+	/*@GetMapping("/generatepassword")
 	public ResponseEntity<Message> generatepassword() {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		System.out.println(passwordEncoder.encode("juli2020"));
@@ -74,6 +74,6 @@ public class TaskController {
 		System.out.println(passwordEncoder.encode("gabi2020"));
 		return new ResponseEntity<Message>(new Message("sucesso."), new HttpHeaders(),
 				HttpStatus.OK);		
-	}
+	}*/
 
 }
