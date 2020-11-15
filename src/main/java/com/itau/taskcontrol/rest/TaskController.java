@@ -22,6 +22,11 @@ import com.itau.taskcontrol.model.TaskEntity;
 import com.itau.taskcontrol.service.TaskService;
 import com.itau.taskcontrol.to.Message;
 
+/**
+ * Class responsible for managing tasks using the REST protocol.
+ * @author ccfantini
+ *
+ */
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
@@ -29,18 +34,35 @@ public class TaskController {
 	@Autowired
 	TaskService service;
 
+	/**
+	 * Gets all tasks of the logged in user.
+	 * If the user has an administrator profile, then it returns all tasks, including those of other users.
+	 * @return Task List
+	 */
 	@GetMapping
 	public ResponseEntity<List<TaskEntity>> getAll() {
 		List<TaskEntity> tasks = service.getAllTasks();
 		return new ResponseEntity<List<TaskEntity>>(tasks, new HttpHeaders(), HttpStatus.OK);
 	}
 
+	/**
+	 * Gets the tasks of the user logged in by status.
+	 * If the user has an administrator profile, then it returns all tasks by status, including those of other users.
+	 * @param status EnumStatus attribute can be 0 - PENDING or 1 - COMPLETED
+	 * @return Task List
+	 */
 	@GetMapping("/status/{status}")
 	public ResponseEntity<List<TaskEntity>> getByStatus(@PathVariable EnumStatus status) {
 		List<TaskEntity> tasks = service.getTaskByStatus(status);
 		return new ResponseEntity<List<TaskEntity>>(tasks, new HttpHeaders(), HttpStatus.OK);
 	}
 
+	/**
+	 * Register a new task.
+	 * @param taskEntity Entity to be registered
+	 * @return Registered TaskEntity
+	 * @throws BusinessRuleException Returns business rules error
+	 */
 	@PostMapping
 	public ResponseEntity<TaskEntity> create(@RequestBody(required = true) TaskEntity taskEntity)
 			throws BusinessRuleException {
@@ -48,6 +70,13 @@ public class TaskController {
 		return new ResponseEntity<TaskEntity>(task, new HttpHeaders(), HttpStatus.OK);
 	}
 
+	/**
+	 * Update task.
+	 * @param taskEntity Entity to be updated
+	 * @return Registered TaskEntity
+	 * @throws RecordNotFoundException Returns error when TaskEntity not found
+	 * @throws BusinessRuleException Returns business rules error
+	 */
 	@PutMapping
 	public ResponseEntity<TaskEntity> update(@RequestBody(required = true) TaskEntity taskEntity)
 			throws RecordNotFoundException, BusinessRuleException {
@@ -55,6 +84,13 @@ public class TaskController {
 		return new ResponseEntity<TaskEntity>(task, new HttpHeaders(), HttpStatus.OK);
 	}
 
+	/**
+	 * Deletes a task by ID
+	 * @param id Identification of the task to be deleted
+	 * @return Message of success when deleted
+	 * @throws RecordNotFoundException Returns error when TaskEntity not found
+	 * @throws BusinessRuleException Returns business rules error
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Message> deleteById(@PathVariable Long id) throws RecordNotFoundException, BusinessRuleException {
 		service.deleteTaskById(id);

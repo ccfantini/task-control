@@ -25,6 +25,11 @@ import com.itau.taskcontrol.service.TaskService;
 import com.itau.taskcontrol.service.TaskServiceImpl;
 import com.itau.taskcontrol.service.UserDetailsServiceImpl;
 
+/**
+ * Unit tests of services for task management.
+ * @author ccfantini
+ *
+ */
 @SpringBootTest
 public class TaskServiceMockTest {
 
