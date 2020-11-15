@@ -27,6 +27,7 @@ It is a demonstrative REST API application for task management developed using S
 
     http://localhost:8080/swagger-ui.htm
 
+![swagger-ui](https://github.com/ccfantini/task-control/blob/main/swagger.PNG)
 
 ## How-to
 
@@ -74,6 +75,22 @@ It is a demonstrative REST API application for task management developed using S
 * Example of metrics to http requests
    
    <code>curl -X GET "http://localhost:8080/actuator/metrics/http.server.requests" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+
+## Unit Test
+
+* Execute
+    <code>mvn test</code>
+* Reports
+    <code>cd target/surefire-reports/</code>
+    
+ ## Documentation
+ 
+ * Execute
+    <code>mvn javadoc:javadoc</code>
+ 
+ * Reports
+    <code>cd target/site/apidocs</code>
+    Open index.html
 
 ## Technologies
 
