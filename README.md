@@ -20,23 +20,57 @@ It is a demonstrative REST API application for task management developed using S
 
 1. Authenticate (OAuth2) the user using the example postman or curl command.
 
-    curl --location --request POST 'http://localhost:8080/oauth/token' --header 'Authorization: Basic aXRhdS10YXNrOml0YXUtdGFzay1zZWNyZXQ=' --form 'username=juliana' --form 'password=juli2020' --form 'grant_type=password'
+    <code>curl --location --request POST 'http://localhost:8080/oauth/token' --header 'Authorization: Basic aXRhdS10YXNrOml0YXUtdGFzay1zZWNyZXQ=' --form 'username=juliana' --form 'password=juli2020' --form 'grant_type=password'</code>
 
 * It is also possible to use API through the swagger page.
 * In the swagger, fill in the Authorization field the following "Bearer [ACCESS_TOKEN]"
 
 2. Register task.
 
-    curl -X POST "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer l+2nilfBzQOudwMWJ6wuTRNWHKE=" -H "Content-Type: application/json" -d "{\"description\": \"teste 222\", \"status\": \"PENDING\", \"summary\": \"teste 222\"}"
+    <code>curl -X POST "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer l+2nilfBzQOudwMWJ6wuTRNWHKE=" -H "Content-Type: application/json" -d "{\"description\": \"teste 222\", \"status\": \"PENDING\", \"summary\": \"teste 222\"}"</code>
 
 3. Search all tasks.
 
-    curl -X GET "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer l+2nilfBzQOudwMWJ6wuTRNWHKE="
+    <code>curl -X GET "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer l+2nilfBzQOudwMWJ6wuTRNWHKE="</code>
 
 4. Update a task.
 
-    curl -X PUT "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer bnayOvEPJIrDDgGI8Xxizf6mUsw=" -H "Content-Type: application/json" -d "{ \"id\": 2, \"summary\": \"teste alterada\", \"description\": \"teste desc alterada\", \"status\": \"COMPLETED\" }"
+    <code>curl -X PUT "http://localhost:8080/tasks" -H "accept: */*" -H "Authorization: Bearer bnayOvEPJIrDDgGI8Xxizf6mUsw=" -H "Content-Type: application/json" -d "{ \"id\": 2, \"summary\": \"teste alterada\", \"description\": \"teste desc alterada\", \"status\": \"COMPLETED\" }"</code>
 
 5. Search task by status.
 
-    curl -X GET "http://localhost:8080/tasks/status/{status}?status=COMPLETED" -H "accept: */*" -H "Authorization: Bearer bnayOvEPJIrDDgGI8Xxizf6mUsw="
+    <code>curl -X GET "http://localhost:8080/tasks/status/PENDING" -H "accept: */*" -H "Authorization: Bearer +W7oZ3o7mZAFLlabMCb2mRyecx4="</code>
+
+6. Delete task by ID.
+
+    <code>curl -X DELETE "http://localhost:8080/tasks/1" -H "accept: */*" -H "Authorization: Bearer +W7oZ3o7mZAFLlabMCb2mRyecx4="</code>
+
+## Health Check
+
+    <code>curl -X GET "http://localhost:8080/actuator/health" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+
+## Log (HTTP Trace)
+
+    <code>curl -X GET "http://localhost:8080/actuator/httptrace" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+
+## Metrics
+
+    * Search all available metrics
+        <code>curl -X GET "http://localhost:8080/actuator/metrics" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+        
+    * Example of metrics to http requests
+        <code>curl -X GET "http://localhost:8080/actuator/metrics/http.server.requests" -H "accept: */*" -H "Authorization: Bearer X/JptYEx1/y6gZGHYDbc2M6hDAA="</code>
+
+## Technologies
+
+    * [Spring Boot](https://spring.io/projects/spring-boot)
+    * [Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+    * [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)
+    * [H2 Database](https://www.h2database.com/html/main.html)
+    * [SpringFox Swagger UI](https://springfox.github.io/springfox/docs/current/#springfox-swagger-ui)
+    * [Spring Security OAuth2 Autoconfigure](https://docs.spring.io/spring-security-oauth2-boot/docs/2.0.0.RC2/reference/htmlsingle/)
+    * [Maven](https://maven.apache.org/)
+    * [Mockito](https://site.mockito.org/)
+    * [Spring Boot Dev Tools](https://docs.spring.io/spring-boot/docs/1.5.16.RELEASE/reference/html/using-boot-devtools.html)
+
+
