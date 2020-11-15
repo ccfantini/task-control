@@ -27,6 +27,7 @@ It is a demonstrative REST API application for task management developed using S
 
     http://localhost:8080/swagger-ui.htm
 
+![swagger-ui](https://github.com/ccfantini/task-control/blob/main/swagger.PNG)
 
 ## How-to
 
