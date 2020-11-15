@@ -10,10 +10,22 @@ It is a demonstrative REST API application for task management developed using S
 ## Getting Started
 
 1. Install Java JDK 1.8 and set it as an environment variable.
+
 2. Install Maven and set it as an environment variable.
-3. Build the project with the following command "mvn package".
-4. Execute the project "java -jar target/itau-task-control-0.0.1.jar"
-5. Access the resource using http://localhost:8080/swagger-ui.htm
+
+3. Build the project with the following commands.
+
+<code>mvn clean install</code>
+
+<code>mvn package</code>
+
+4. Execute the project.
+
+<code>java -jar target/itau-task-control-0.0.1.jar</code>
+
+5. Access the Swgger UI.
+
+    http://localhost:8080/swagger-ui.htm
 
 
 ## How-to
