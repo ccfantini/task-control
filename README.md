@@ -15,13 +15,13 @@ It is a demonstrative REST API application for task management developed using S
 
 3. Build the project with the following commands.
 
-<code>mvn clean install</code>
+    <code>mvn clean install</code>
 
-<code>mvn package</code>
+    <code>mvn package</code>
 
 4. Execute the project.
 
-<code>java -jar target/itau-task-control-0.0.1.jar</code>
+    <code>java -jar target/itau-task-control-0.0.1.jar</code>
 
 5. Access the Swgger UI.
 
