@@ -3,6 +3,13 @@
 
 It is a demonstrative REST API application for task management developed using Spring Boot with H2 database and OAuth2 to authentication.
 
+# Heroku
+
+The project is published on the [HEROKU](https://www.heroku.com/) platform integrated with GitHub.
+
+https://itau-task-control.herokuapp.com/swagger-ui.html
+   
+
 ## Settings
 - It is not necessary to make any changes to the application.properties
 - The data.sql file contains the data of users previously registered when starting the application.
